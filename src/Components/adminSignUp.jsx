@@ -70,7 +70,7 @@ import {connect} from 'react-redux'
     
     loginClick = () => {
 
-        this.props.history.push('/login')
+        this.props.history.push('/adminSignIn')
     }
     handleSnackClose = () => {
         this.setState({

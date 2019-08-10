@@ -76,3 +76,13 @@ button.button-1 {
 button.button-2 {
   background-color: royalblue;
 }
+
+
+
+
+/*********************************************************ADMIN_LOGIN************************************************/
+.main_div_login {
+  display: flex;
+  justify-content: center;
+  margin-top: 9rem;
+}

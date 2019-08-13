@@ -86,3 +86,58 @@ button.button-2 {
   justify-content: center;
   margin-top: 9rem;
 }
+/********************************DASHBOARD COMPONENT***********************************************************************/
+
+.navbar {
+  height: 5.8rem;
+  box-shadow: 0 0 12px;
+}
+.button.btn.button {
+  box-shadow: 0 0 5px;
+  height: 3rem;
+  width: 10rem;
+
+}
+.Button_Adjust {
+  width: 38rem;
+  display: flex;
+  justify-content: space-between;
+}
+.admin_ {
+  font-weight: 900;
+  font-size: 1.5rem;
+  margin-left: 6rem;
+}
+button.btn.button1 {
+  width: 9rem;
+  height: 3rem;
+  box-shadow: 0 0 5px;
+}
+.service_check {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 5rem;
+}
+.card.basic_card {
+  width: 14rem;
+  height: 8rem;
+}
+.card.basic_card {
+  width: 14rem;
+  height: 8rem;
+  font-size: 29px;
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 62px;
+  box-shadow: 0 0 2px;
+  background-color: C0C0C0;
+  background-color: lightgrey;
+}
+.card-header.service_ {
+  font-weight: 800;
+  font-size: 23px;
+}
+.servive_cards {
+  display: flex;
+  justify-content: space-evenly;
+}

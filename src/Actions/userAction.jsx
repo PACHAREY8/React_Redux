@@ -12,7 +12,7 @@ function register(data){
         .then(
             data =>{
                 dispatch(success(data));
-            this.props.history.push('/adminSignIn')
+            window.location.href='/adminSignIn'
             dispatch(alertActions.success('Registered successfully'));
              }
         )
@@ -34,7 +34,8 @@ return dispatch=>{
     .then(
         data=>{
             dispatch(success(data));
-            // this.props.history.push('/dashboard')
+            console.log(data);
+            window.location.href='/dashboardComponent'
             dispatch(alertActions.success('Logged In Successfully'))
         }
     )

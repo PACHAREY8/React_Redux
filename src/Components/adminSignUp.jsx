@@ -47,7 +47,6 @@ import {connect} from 'react-redux'
                 lastName: this.state.lastName,
                 email: this.state.userName,
                 password: this.state.password,
-
             }
             this.props.register(data)
             // // console.log("register data==>",data);

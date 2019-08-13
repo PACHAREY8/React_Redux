@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { userAction } from '../Actions/userAction';
 import { connect } from 'react-redux';
-
+import {authHeader} from '../Helpers/authHeader'
 class AdminSignIn extends Component {
     constructor(props) {
         super(props);
@@ -44,7 +44,10 @@ class AdminSignIn extends Component {
 
     // }
     render() {
-        const { signIn } = this.props
+        authHeader()
+        const  signIn  = this.props
+        console.log("state_cheking_for_signIn",signIn);
+
         return (
             <div className="main_div_login">
                 <form className="login_form">
@@ -96,9 +99,13 @@ class AdminSignIn extends Component {
     }
 }
 function mapstate(state) {
-    const {signIn} = state;
+    console.log("map state cheking",state);
+    
+    const signIn = state.LoginReducer.data;
+    console.log("after state set in component",signIn);
     return  signIn 
 }
+
 const actionCreator = {
     login: userAction.login
 }

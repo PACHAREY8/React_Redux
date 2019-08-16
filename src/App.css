@@ -91,6 +91,8 @@ button.button-2 {
 .navbar {
   height: 5.8rem;
   box-shadow: 0 0 12px;
+  position: relative;
+  width: 107rem;
 }
 .button.btn.button {
   box-shadow: 0 0 5px;
@@ -140,4 +142,52 @@ button.btn.button1 {
 .servive_cards {
   display: flex;
   justify-content: space-evenly;
+  padding-top: 6rem;
+  /* overflow: hidden; */
+}
+.card-header.service_ {
+  font-weight: 800;
+  font-size: 23px;
+  display: flex;
+  justify-content: center;
+}
+.card.border-info.mb-3 {
+  width: 13rem;
+}
+.card-body.text-info {
+  display: flex;
+  justify-content: center;
+}
+.table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 1rem;
+  background-color: transparent;
+  /* display: flex;
+  flex-direction: column;
+  justify-content: space-evenly; */
+}
+.admin_Table_content {
+  width: 80rem;
+  margin-left: 14rem
+}
+td.button_display_payment {
+  display: flex;
+  justify-content: space-evenly;
+}
+tr.table_content_payment {
+  text-align: center;
+}
+.btn-outline-success {
+  color: #212529;
+  background-color: transparent;
+  background-image: none;
+  border-color: #212529;
+}
+
+.btn-outline-danger {
+  color: #212529;
+  background-color: transparent;
+  background-image: none;
+  border-color: #212529;
 }

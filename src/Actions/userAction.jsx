@@ -1,9 +1,10 @@
-import {AdminRegister, adminLogin} from '../Services/service'
+import {AdminRegister, adminLogin, OrderApproval} from '../Services/service'
 import  {alertActions} from './alertAction'
 import {userConstant} from '../Constants/userConstant'
 export const userAction={
 register,
 login,
+Approval
 }
 function register(data){
     return dispatch =>{
@@ -49,4 +50,11 @@ return dispatch=>{
 function request(data) {return {type:userConstant.LOGIN_REQUEST,data}}
 function success(data) {return{type:userConstant.LOGIN_SUCCESS,data}}
 function failure(error){return{type:userConstant.LOGIN_FAILURE,error}}
+}
+function Approval(data){
+    return dispatch=>{
+        dispatch(request(data))
+        OrderApproval(data)
+    }
+
 }

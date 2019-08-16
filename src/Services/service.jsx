@@ -20,4 +20,18 @@ export function UserStatics(){
 
     })
 }
-
+export function getAdminUserList(){
+    return axios.get(baseUrl+`/user/getAdminUserList`,{
+        headers:authHeader()
+    })
+}
+export function userCartList(){
+    return axios.get(baseUrl+`/productcarts/userCartList`,{
+        headers:authHeader()
+    })
+}
+export function OrderApproval(data){
+    return axios.post(baseUrl+`/productcarts/adminCompleteOrder`,data,{
+        headers:authHeader()
+    })
+}

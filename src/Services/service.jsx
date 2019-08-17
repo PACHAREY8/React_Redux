@@ -35,3 +35,23 @@ export function OrderApproval(data){
         headers:authHeader()
     })
 }
+export function OrderReject(data){
+    return axios.post(baseUrl+`/productcarts/adminCancelOrder`,data,{
+        headers:authHeader()
+    })
+}
+export function getUnapprovedAnswer(){
+    return axios.get(baseUrl+`/questionAndAnswerNotes/getUnApprovedAnswer`,{
+        headers:authHeader()
+    })
+}
+export function ansApproved(parentId,isApproved){
+    return axios.post(baseUrl+`/questionAndAnswerNotes/approve/${parentId}`,isApproved,{
+        headers:authHeader()
+    })
+}
+export function ansRejectt(parentId,isApproved){
+    return axios.post(baseUrl+`/questionAndAnswerNotes/reject/${parentId}`,isApproved,{
+        headers:authHeader()
+    })
+}

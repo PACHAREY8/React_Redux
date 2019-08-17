@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { UserStatics, getAdminUserList } from '../Services/service'
 import AppBar from './appBar';
-import {connect} from 'react-redux'
 class DashboardComponent extends Component {
 
   constructor() {
@@ -152,7 +151,7 @@ class DashboardComponent extends Component {
         </div>
         <center>
           <div className="table-responsive"
-            style={{ width: "80rem", padding: "2%" }}>
+            style={{ width: "63rem", padding: "2%" }}>
             <table className="table table-stripped table-bordered table-hover ">
               <thead >
                 <tr>
@@ -172,19 +171,17 @@ class DashboardComponent extends Component {
               </thead>
               <tbody>
                 {renderUserLists}
-                <tr>
-                  <td colSpan="4">
-                    <ul className="pagination" id="page-numbers" style={{ width: "35vh" }}>
-                      <li><button onClick={this.prevPage} className={currentPage >= pageNumbers.length ? 'page-link disable' : 'page-link'}>PrevPage</button></li>
-                      {renderPageNumbers}
-                      <li><button onClick={this.nextPage} className="page-link">NextPage</button></li>
-                    </ul>
-                  </td>
-                </tr>
               </tbody>
             </table>
           </div>
         </center>
+        <div colSpan="4" style={{marginLeft:"14.8%"}}>
+        <ul className="pagination" id="page-numbers" style={{ width: "35vh" }}>
+            <li><button onClick={this.prevPage} className={currentPage >= pageNumbers.length ? 'page-link disable' : 'page-link'}>PrevPage</button></li>
+            {renderPageNumbers}
+            <li><button onClick={this.nextPage} className="page-link">NextPage</button></li>
+        </ul>
+    </div>
         </div>
       </div>
     )

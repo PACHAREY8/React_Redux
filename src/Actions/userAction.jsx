@@ -1,10 +1,13 @@
-import {AdminRegister, adminLogin, OrderApproval} from '../Services/service'
+import {AdminRegister, adminLogin, OrderApproval, OrderReject, userCartList, ansApproved, ansRejectt} from '../Services/service'
 import  {alertActions} from './alertAction'
 import {userConstant} from '../Constants/userConstant'
 export const userAction={
 register,
 login,
-Approval
+Approval,
+Reject,
+ansApproval,
+ansReject
 }
 function register(data){
     return dispatch =>{
@@ -55,6 +58,88 @@ function Approval(data){
     return dispatch=>{
         dispatch(request(data))
         OrderApproval(data)
+        .then(
+            data=>{
+                dispatch(success(data))
+                console.log("order approval data from backend",data);
+                dispatch(alertActions.success("Order Approved Successfully"))
+            }
+        )
+        .catch(
+            error=>{
+                dispatch(failure(error.toString()))
+                dispatch(alertActions.error(error.toString()))
+            }
+        )
     }
+    function request(data){return{type:userConstant.ORDER_APPROVAL_REQUEST,data}}
+    function success(data){return{type:userConstant.ORDER_APPROVAL_SUCCESS,data}}
+    function failure(error){return{type:userConstant.ORDER_APPROVAL_FAILURE,error}}
 
+}
+export function Reject(data){
+    return dispatch=>{
+        dispatch(request(data))
+        OrderReject(data)
+        .then(
+            data=>{
+                dispatch(success(data))
+                dispatch(alertActions.success("Order Rejected By Admin"))
+            }
+        )
+        .catch(
+            error=>{
+                dispatch(failure(error.toString()))
+                dispatch(alertActions.error(error.toString()))
+            }
+            )
+    }
+    function request(data){return{type:userConstant.ORDER_REJECTION_REQUEST,data}}
+    function success(data){return{type:userConstant.ORDER_REJECTION_SUCCESS,data}}
+    function failure(error){return{type:userConstant.ORDER_REJECTION_FAILUER,error}}
+
+}
+export function ansApproval(parentId,isApproved){
+    return dispatch=>{
+        dispatch(request(parentId,isApproved))
+        ansApproved(parentId,isApproved)
+        .then(
+            data=>{
+                dispatch(success(data))
+                dispatch(alertActions.success("ANS_APPROVED_BY_ADMIN_SUCCESSFULLY"))
+            }
+        )
+        .catch(
+            error=>{
+                dispatch(failure(error.toString()))
+                dispatch(alertActions.error(error.toString()))
+            }
+        )
+    }
+    function request(parentId,isApproved){return{type:userConstant.ANS_APPROVAL_REQUEST,parentId,isApproved}}
+    function success(data){return{type:userConstant.ANS_APPROVAL_SUCCESS,data}}
+    function failure(error){return{type:userConstant.ANS_APPROVAL_FAILURE,error}}
+}
+export function ansReject(parentId,isApproved){
+   return dispatch=>{
+       dispatch(request(parentId,isApproved))
+       ansRejectt(parentId,isApproved)
+       .then(
+           data=>{
+               dispatch(success(data))
+               dispatch(alertActions.success("ANS_REJECTED_BY_ADMIN"))
+           }
+       )
+       .catch(
+           error=>{
+               dispatch(failure(error.toString()))
+               dispatch(alertActions.error(error.toString()))
+           }
+       )
+
+
+    }
+    function request(parentId,isApproved){return{type:userConstant.ANS_REJECTION_REQUEST,parentId,isApproved}}
+    function success(data){return{type:userConstant.ANS_REJECTION_SUCCESS,data}}
+    function failure(error){return{type:userConstant.ANS_REJECTION_FAILURE,error}}
 }

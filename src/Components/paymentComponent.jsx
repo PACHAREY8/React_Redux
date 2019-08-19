@@ -15,17 +15,20 @@ class PaymentComponent extends Component {
             userList: []
         }
     }
-    componentWillMount() {
+    componentDidMount() {
+       this.userCartListData()
+    }
+    userCartListData=()=>{
         userCartList()
-            .then(response => {
-                this.setState({
-                    userList: response.data.data
-                })
-                console.log('RES_FROM_USER_CART_LIST', this.state.userList)
+        .then(response => {
+            this.setState({
+                userList: response.data.data
             })
-            .catch(err => {
-                console.log('ERR_IN_GETTING_USER_LIST', err)
-            })
+            console.log('RES_FROM_USER_CART_LIST', this.state.userList)
+        })
+        .catch(err => {
+            console.log('ERR_IN_GETTING_USER_LIST', err)
+        })
     }
     handleAdminApproval = (cartId) => {
         var data = {
@@ -69,9 +72,23 @@ class PaymentComponent extends Component {
 
     render() {
         const { Approval } = this.props
+        console.log("this.props", this.props.orderApproval);
+
+        if( this.props.orderApproval!== undefined){
+            if(this.props.orderApproval.data.data.success){
+                this.userCartListData()
+            }
+        }
+        if( this.props.orderRejection!== undefined){
+            if(this.props.orderRejection.data.data.success){
+                this.userCartListData()
+            }
+        }
+        if (this.state.userList !== " ") {
+            console.log("userlist",this.state.userList);
+            
         const { currentPage, listPerPage } = this.state;
         const { startIndex, endIndex } = this.state;
-        // console.log("this.props", this.props.adminUserList);
     
         // Logic for displaying userlist
         const indexOfLastUser = currentPage * listPerPage;
@@ -98,7 +115,7 @@ class PaymentComponent extends Component {
 
         const PendingUser = this.state.userList.map((key) => {
             return ((key.status === 'pending') &&
-                <tr>
+                <tr className="admin_data">
                     <td>{key.user.firstName}</td>
                     <td>{key.user.lastName}</td>
                     <td>{key.user.service}</td>
@@ -115,9 +132,10 @@ class PaymentComponent extends Component {
         return (
             <div className="pending_user_list">
                 <AppBar />
-                <center>
-                    <div className="table-responsive"
-                        style={{ width: "80rem", padding: "2%" }}>
+                
+                <center className="center_table">
+                <div className="empty_state_pay"><h3>Pending Request</h3></div>
+                    <div className="table-responsive QnA_table">
                         <table className="table table-stripped table-bordered table-hover ">
                             <thead >
                                 <tr className="table_content_payment">
@@ -156,13 +174,21 @@ class PaymentComponent extends Component {
    
 
             </div>
-        )
+        )}
+        else{
+            return(
+                <div>
+                <div><AppBar /></div>
+               <div className="empty_state"><h2>Answers Not Available</h2></div>
+                </div>
+            )
+        }
     }
 }
 function mapState(state) {
-    const isRejected = state;
-    const Approval = state;
-    return {isRejected, Approval}
+    const orderRejection = state.orderRejection.orderRejection;
+    const orderApproval = state.orderApproval.orderApproval;
+    return {orderRejection, orderApproval}
 }
 const actionCreator = {
     Approval: userAction.Approval,

@@ -81,18 +81,56 @@ button.button-2 {
 
 
 /*********************************************************ADMIN_LOGIN************************************************/
+form.login_form {
+  width: 40%;
+}
 .main_div_login {
+  margin-top: 9rem;
+  width: 100%;
+  line-height: 2rem;
   display: flex;
   justify-content: center;
-  margin-top: 9rem;
+}
+input {
+  overflow: visible;
+  height: 2.5rem;
+  width: 32rem;
+}
+
+p.loginheadd {
+  font-size: 1.8rem;
+}
+.ser_sign {
+  font-size: 1.3rem;
+}
+.ser_contToFundoo {
+  font-size: 18px;
+}
+.button_11{
+  display:flex;
+  justify-content: space-between 
+}
+
+button.btn.btn-outline-primary.sign_In_button {
+  width: 8rem;
+  height: 2.5rem;
+  margin-top: 1.5rem;
+}
+.btn-outline-primary {
+  color: #007bff;
+  background-color: transparent;
+  background-image: none;
+  border-color: cornsilk;
+
 }
 /********************************DASHBOARD COMPONENT***********************************************************************/
 
 .navbar {
   height: 4.5rem;
   box-shadow: 0 0 12px;
-  position: relative;
-  width: 80rem;
+  position: fixed;
+  width: 100%;
+  z-index: 9999;
 }
 .button.btn.button {
   box-shadow: 0 0 5px;
@@ -111,9 +149,10 @@ button.button-2 {
   margin-left: 6rem;
 }
 button.btn.button1 {
-  width: 9rem;
-  height: 3rem;
-  box-shadow: 0 0 5px;
+  width: 7rem;
+  height: 2.5rem;
+  margin-right: 18px;
+  /* box-shadow: 0 0 5px; */
 }
 .service_check {
   display: flex;
@@ -142,7 +181,7 @@ button.btn.button1 {
 .servive_cards {
   display: flex;
   justify-content: space-evenly;
-  /* padding-top: 6rem; */
+  padding-top: 5rem;
   /* overflow: hidden; */
 }
 .card-header.service_ {
@@ -152,7 +191,9 @@ button.btn.button1 {
   justify-content: center;
 }
 .card.border-info.mb-3 {
-  width: 13rem;
+  width: 10rem;
+  height: 6rem;
+  line-height: 1rem;
 }
 .card-body.text-info {
   display: flex;
@@ -163,9 +204,6 @@ button.btn.button1 {
   max-width: 100%;
   margin-bottom: 1rem;
   background-color: transparent;
-  /* display: flex;
-  flex-direction: column;
-  justify-content: space-evenly; */
 }
 .admin_Table_content {
   width: 80rem;
@@ -190,4 +228,77 @@ tr.table_content_payment {
   background-color: transparent;
   background-image: none;
   border-color: #212529;
+}
+/* .card.border-info.mb-3 {
+  width: 10rem;
+} */
+.btn:not(:disabled):not(.disabled) {
+  cursor: pointer;
+}
+.btn-outline-dark {
+  color: #343a40;
+  background-color: transparent;
+  background-image: none;
+  border-color: snow;
+}
+.QnA_table {
+  width: 60rem;
+  padding-top: 8rem;
+}
+.table td, .table th {
+  padding: 0.4rem;
+  vertical-align: middle;
+}
+.table {
+  width: 94.5%;
+  max-width: 100%;
+  margin-bottom: 1rem;
+  background-color: transparent;
+}
+tr.admin_data {
+  font-size: 14px;
+}
+.btn-outline-success {
+  color: #212529;
+  background-color: transparent;
+  background-image: none;
+  border-color: azure;
+}
+.btn-outline-danger {
+  color: #212529;
+  background-color: transparent;
+  background-image: none;
+  border-color: azure;
+}
+.card-header.service_ {
+  font-weight: 400;
+  font-size: 23px;
+  display: flex;
+  justify-content: center;
+}
+.empty_state{
+  position: absolute;
+  margin-top: 15vh;
+  width: 100%;
+  text-align: center;
+}
+.empty_state_pay{
+  position: absolute;
+  margin-top: 13vh;
+  width: 100%;
+  text-align: center;
+  margin-top: 13vh;
+  color: rgba(0,0,0,.5);
+}
+/* center.center_table {
+  position: absolute;
+  margin-top: 3%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+} */
+@media screen and (max-width: 600px) {
+  form.login_form {
+    width: 90%;
+  }
 }

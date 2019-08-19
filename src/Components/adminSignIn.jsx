@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { userAction } from '../Actions/userAction';
 import { connect } from 'react-redux';
-import {authHeader} from '../Helpers/authHeader'
+import { authHeader } from '../Helpers/authHeader'
 class AdminSignIn extends Component {
     constructor(props) {
         super(props);
@@ -19,7 +19,7 @@ class AdminSignIn extends Component {
         const password = event.target.value;
         this.setState({ password: password })
         console.log(this.state.password);
-        
+
     }
     handleSubmit = (e) => {
         e.preventDefault()
@@ -27,8 +27,8 @@ class AdminSignIn extends Component {
             'email': this.state.email,
             'password': this.state.password,
         }
-        console.log("DATA_IN_ADMIN_SIGN_UP",data);
-        
+        console.log("DATA_IN_ADMIN_SIGN_UP", data);
+
         this.props.login(data)
     }
     forgotPassClick = e => {
@@ -45,50 +45,42 @@ class AdminSignIn extends Component {
     // }
     render() {
         authHeader()
-        const  signIn  = this.props
-        console.log("state_cheking_for_signIn",signIn);
+        const signIn = this.props
+        console.log("state_cheking_for_signIn", signIn);
 
         return (
-            <div className="main_div_login">
+            <div className="main_div_login" >
                 <form className="login_form">
                     <p className="loginheadd">
                         <span style={{ color: "blue" }}>F</span>
                         <span style={{ color: "red" }}>U</span>
-                        <span style={{ color: "yellow" }}>N</span>
+                        <span style={{ color: "#F4B400" }}>N</span>
                         <span style={{ color: "blue" }}>D</span>
                         <span style={{ color: "green" }}>O</span>
                         <span style={{ color: "red" }}>O</span>
                     </p>
                     <div className="ser_sign"><b>Sign In</b></div>
                     <div className="ser_contToFundoo">Continue to Fundoo</div>
-                    <div>
-                        <div>
-                            <input
-                                id="outlined-name"
-                                label="EMAIL"
-                                type="email"
-                                autoComplete="email"
-                                value={this.state.email}
-                                onChange={this.handleEmailChange}
-                                margin="normal"
-                                variant="outlined" />
-                        </div>
-                        <div>
-                            <input
-                                id="outlined-name"
-                                label="PASSWORD"
-                                type="password"
-                                autoComplete="current-password"
-                                value={this.state.password}
-                                onChange={this.handlePasswordChange}
-                                margin="normal"
-                                variant="outlined" />
-                        </div>
+                    <div class="form-group">
+                        <label for="usr">Email:</label>
+                        <input type="text" className="form-control" id="usr"   value={this.state.email}
+                             onChange={this.handleEmailChange} />
                     </div>
-                    <div>
-                        <button class="btn btn-light">FORGOT PASSWORD</button>
-                        <button class="btn btn-light" onClick={this.registerClick}>CREATE ACCOUNT</button>
-                        <button class="btn btn-primary" onClick={this.handleSubmit}>SIGN IN</button>
+                    <div class="form-group">
+                        <label for="pwd">Password:</label>
+                        <input type="password" className="form-control" id="pwd" value={this.state.password}
+                             onChange={this.handlePasswordChange}/>
+                    </div>
+                    <div className="button_11">
+                        <div>
+                            <div>
+                                <button class="btn btn-light" style={{ fontSize: "11px" }}>FORGOT PASSWORD</button>
+                            </div>
+                            <div>
+                                <button class="btn btn-light" style={{ fontSize: "11px" }} onClick={this.registerClick}>CREATE ACCOUNT</button>
+                            </div>
+                        </div>
+                        <button class="btn btn-outline-primary sign_In_button" style={{ fontSize: "15px" }} onClick={this.handleSubmit}>SIGN IN</button>
                     </div>
                 </form>
             </div>
@@ -96,14 +88,39 @@ class AdminSignIn extends Component {
     }
 }
 function mapstate(state) {
-    console.log("map state cheking",state);
-    
+    console.log("map state cheking", state);
+
     const signIn = state.LoginReducer.data;
-    console.log("after state set in component",signIn);
-    return  signIn 
+    console.log("after state set in component", signIn);
+    return signIn
 }
 
 const actionCreator = {
     login: userAction.login
 }
 export default connect(mapstate, actionCreator)(AdminSignIn)
+
+// <div style={{ lineHeight: "3.5rem" }}>
+// <div>
+//     <input
+//         id="outlined-name"
+//         label="EMAIL"
+//         type="email"
+//         autoComplete="email"
+//         value={this.state.email}
+//         onChange={this.handleEmailChange}
+//         margin="normal"
+//         variant="outlined" />
+// </div>
+// <div>
+//     <input
+//         id="outlined-name"
+//         label="PASSWORD"
+//         type="password"
+//         autoComplete="current-password"
+//         value={this.state.password}
+//         onChange={this.handlePasswordChange}
+//         margin="normal"
+//         variant="outlined" />
+// </div>
+// </div>

@@ -5,6 +5,7 @@ import {LoginReducer} from './loginReducer'
 import {orderApproval} from './orderApprovalReducer'
 import {orderRejection} from './orderRejectionReducer'
 import {ansApproval} from './ansApprovalReducer'
+import {ansRejection} from './ansRejectionReducer'
 
 export default combineReducers({
     alertReducer,
@@ -12,6 +13,7 @@ export default combineReducers({
     LoginReducer,
     orderApproval,
     orderRejection,
-    ansApproval
+    ansApproval,
+    ansRejection
 })
 

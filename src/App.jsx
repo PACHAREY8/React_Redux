@@ -12,10 +12,8 @@ class App extends Component{
   render(){
     return(
       <div>  
-      
          <Router>
-         <Route exact path="/" component={AdminSignUp} ></Route>
-          <Route path="/adminSignUp" component={AdminSignUp} ></Route>
+         <Route exact path="/" component={AdminSignIn} ></Route>
           <Route path ="/adminSignIn" component={AdminSignIn}></Route>
           <Route path ="/dashboardComponent" component={DashboardComponent}></Route>
           <Route path ="/qnAComponent" component={QnAComponent}></Route>

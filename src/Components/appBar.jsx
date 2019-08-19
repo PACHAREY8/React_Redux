@@ -17,15 +17,14 @@ export default class AppBar extends Component {
     render() {
         return (
           <Navbar bg="light" variant="light">
-          <Navbar.Brand href="#home">ADMIN  DASHBOARD</Navbar.Brand>
+          <Navbar.Brand >ADMIN  DASHBOARD</Navbar.Brand>
           <Nav className="mr-auto">
-            <Nav.Link href="#qnAComponent">Home</Nav.Link>
-            <Nav.Link href="#features">Features</Nav.Link>
-            <Nav.Link href="#pricing">Pricing</Nav.Link>
+            <Nav.Link onClick={this.handleUserList}>USERS</Nav.Link>
+            <Nav.Link onClick={this.handleQnAList}>Q & A</Nav.Link>
+            <Nav.Link  onClick={this.handlePaymentList}  >PAYMENT</Nav.Link>
           </Nav>
           <Form inline>
-            <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-            <Button variant="outline-primary">Search</Button>
+            <Button className="btn btn-outline-dark button1"  onClick={this.handleLogout}>LOGOUT</Button>
           </Form>
         </Navbar>
           //   <div>

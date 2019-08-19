@@ -129,7 +129,6 @@ class DashboardComponent extends Component {
 
     const ServiceDetails = this.state.serviceDetails.map((key) => {
       return (
-        <div>
           <div className="main_card">
             <div className="service_check">
               <div className="card border-info mb-3 ">
@@ -139,8 +138,7 @@ class DashboardComponent extends Component {
                 </div>
               </div>
             </div>
-          </div>
-        </div>)
+          </div>)
     })
     return (
       <div>
@@ -151,7 +149,7 @@ class DashboardComponent extends Component {
         </div>
         <center>
           <div className="table-responsive"
-            style={{ width: "63rem", padding: "2%" }}>
+            style={{ width: "66rem", padding: "2%",lineHeight:"2.5rem"}}>
             <table className="table table-stripped table-bordered table-hover ">
               <thead >
                 <tr>
@@ -175,7 +173,7 @@ class DashboardComponent extends Component {
             </table>
           </div>
         </center>
-        <div colSpan="4" style={{marginLeft:"14.8%"}}>
+        <div colSpan="4" style={{marginLeft:"13%"}}>
         <ul className="pagination" id="page-numbers" style={{ width: "35vh" }}>
             <li><button onClick={this.prevPage} className={currentPage >= pageNumbers.length ? 'page-link disable' : 'page-link'}>PrevPage</button></li>
             {renderPageNumbers}

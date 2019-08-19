@@ -5,7 +5,7 @@ export function orderRejection(state={},action){
             return {isRejected:true};
             case userConstant.ORDER_REJECTION_SUCCESS:
                 return {isRejected:true,
-                data:action.data
+                    orderRejection:action.data
                 };
                 case userConstant.ORDER_REJECTION_FAILUER:
                     return{};

@@ -1,4 +1,4 @@
-import {AdminRegister, adminLogin, OrderApproval, OrderReject, userCartList, ansApproved, ansRejectt} from '../Services/service'
+import {AdminRegister, adminLogin, OrderApproval, OrderReject, userCartList, ansApproved, ansRejectt, getUnapprovedAnswer} from '../Services/service'
 import  {alertActions} from './alertAction'
 import {userConstant} from '../Constants/userConstant'
 export const userAction={
@@ -62,7 +62,7 @@ function Approval(data){
             data=>{
                 dispatch(success(data))
                 console.log("order approval data from backend",data);
-                dispatch(alertActions.success("Order Approved Successfully"))
+                dispatch(alertActions.success(data.data.data))
             }
         )
         .catch(
@@ -84,7 +84,7 @@ export function Reject(data){
         .then(
             data=>{
                 dispatch(success(data))
-                dispatch(alertActions.success("Order Rejected By Admin"))
+                dispatch(alertActions.success(data.data.data))
             }
         )
         .catch(
@@ -106,7 +106,7 @@ export function ansApproval(parentId,isApproved){
         .then(
             data=>{
                 dispatch(success(data))
-                dispatch(alertActions.success("ANS_APPROVED_BY_ADMIN_SUCCESSFULLY"))
+                dispatch(alertActions.success(data.data.data))
             }
         )
         .catch(
@@ -127,7 +127,7 @@ export function ansReject(parentId,isApproved){
        .then(
            data=>{
                dispatch(success(data))
-               dispatch(alertActions.success("ANS_REJECTED_BY_ADMIN"))
+               dispatch(alertActions.success(data.data.data))
            }
        )
        .catch(

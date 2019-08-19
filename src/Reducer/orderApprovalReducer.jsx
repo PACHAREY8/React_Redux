@@ -6,7 +6,7 @@ export function orderApproval(state = {}, action) {
         case userConstant.ORDER_APPROVAL_SUCCESS:
             return {
                 Approval: true,
-                data: action.data
+                orderApproval: action.data
             };
             case userConstant.ORDER_APPROVAL_FAILURE:
                 return{};

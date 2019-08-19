@@ -5,7 +5,9 @@ export const alertActions ={
     clear
 }
 function success(message){
-    return {type : alertConstants.SUCCESS,message}
+    console.log("message from alert Action",message);
+    
+    return {type : alertConstants.SUCCESS,data:message}
 } 
 function error(message){
     return {type : alertConstants.ERROR,message}

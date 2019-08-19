@@ -17,18 +17,25 @@ import { userAction } from '../Actions/userAction';
         }
     }
     componentWillMount() {
-        getUnapprovedAnswer()
-            .then(response => {
-                console.log("RES_FROM_GETTING_UNAPPROVED_ANSWER", response);
-                this.setState({
-                    unApproved: response.data.data
-                })
-                console.log("AFTER_SETSTATE_RES_FROM_GETTING_UNAPPROVED_ANSWER", this.state.unApproved);
-            })
-            .catch(err => {
-                console.log("ERR_IN_GETTING_UNAPPROVED_ANSWER", err);
+       this.getUnapprovedAnswer();
+    }
 
+    getUnapprovedAnswer = () => {
+        getUnapprovedAnswer()
+        .then(response => {
+            console.log("RES_FROM_GETTING_UNAPPROVED_ANSWER", response);
+            this.setState({
+                unApproved: response.data.data
             })
+            console.log("AFTER_SETSTATE_RES_FROM_GETTING_UNAPPROVED_ANSWER", this.state.unApproved);
+        })
+        .catch(err => {
+            console.log("ERR_IN_GETTING_UNAPPROVED_ANSWER", err);
+            this.setState({
+                unApproved:undefined
+            })
+
+        })
     }
     handleClick = (event) => {
         this.setState({
@@ -72,8 +79,24 @@ import { userAction } from '../Actions/userAction';
          this.props.ansReject(parentId,this.state.isApproved)
      }
     render() {
-        const {ansApproval}=this.props
-        console.log("props from ans approval",this.props);
+        console.log("rejection props",this.props.ansRejectionRes);
+        
+        if (this.props.ansApprovalRes !== undefined ) {
+            if (this.props.ansApprovalRes.data.data.success ) {
+            this.getUnapprovedAnswer();
+        }
+        }
+        if (this.props.ansRejectionRes !== undefined) {
+
+            
+            
+            if(this.props.ansRejectionRes.data.data.success){
+                this.getUnapprovedAnswer();
+                console.log("foreio ",this.state.unApproved);
+
+            }
+        }
+        if(this.state.unApproved !== undefined){
         
         const { currentPage, listPerPage } = this.state;
         const { startIndex, endIndex } = this.state;
@@ -103,7 +126,7 @@ import { userAction } from '../Actions/userAction';
         var UnapprovedArray = this.state.unApproved.map(key => {
 
             return (
-                <tr>
+                <tr className="admin_data">
                     <td dangerouslySetInnerHTML={{ __html: key.message }}>
                     </td>
                     <td className="button_display_payment"><button class="btn btn-outline-success" onClick={() => this.handleQnAApproval(key.id)}>Approve</button>
@@ -115,8 +138,8 @@ import { userAction } from '../Actions/userAction';
             <div>
                 <AppBar />
                 <center>
-                    <div className="table-responsive"
-                        style={{ width: "80rem", padding: "2%" }}>
+                <div className="empty_state_pay"><h3>Requested Questions</h3></div>
+                    <div className="table-responsive QnA_table">
                         <table className="table table-stripped table-bordered table-hover ">
                             <thead >
                                 <tr className="table_content_payment">
@@ -134,7 +157,7 @@ import { userAction } from '../Actions/userAction';
                         </table>
                     </div>
                 </center>
-                <div colSpan="4" style={{ marginLeft: "15.2%" }}>
+                <div colSpan="4" style={{ marginLeft: "14.8%" }}>
                     <ul className="pagination" id="page-numbers" style={{ width: "35vh" }}>
                         <li><button onClick={this.prevPage} className={currentPage >= pageNumbers.length ? 'page-link disable' : 'page-link'}>PrevPage</button></li>
                         {renderPageNumbers}
@@ -142,13 +165,21 @@ import { userAction } from '../Actions/userAction';
                     </ul>
                 </div>
             </div>
-        )
+        )}
+        else{
+            return(
+                <div>
+                <div><AppBar /></div>
+               <div className="empty_state"><h2>Answers Not Available</h2></div>
+                </div>
+            )
+        }
     }
 }
 function mapState(state){
-    const ansApproval=state;
-    const ansRejection=state
-    return {ansApproval,ansRejection}
+    const ansApprovalRes=state.ansApproval.ansApprovalRes;
+    const ansRejectionRes=state.ansRejection.ansRejectionRes
+    return {ansApprovalRes,ansRejectionRes}
 }
 const actionCreator={
     ansApproval:userAction.ansApproval,

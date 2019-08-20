@@ -99,28 +99,3 @@ const actionCreator = {
     login: userAction.login
 }
 export default connect(mapstate, actionCreator)(AdminSignIn)
-
-// <div style={{ lineHeight: "3.5rem" }}>
-// <div>
-//     <input
-//         id="outlined-name"
-//         label="EMAIL"
-//         type="email"
-//         autoComplete="email"
-//         value={this.state.email}
-//         onChange={this.handleEmailChange}
-//         margin="normal"
-//         variant="outlined" />
-// </div>
-// <div>
-//     <input
-//         id="outlined-name"
-//         label="PASSWORD"
-//         type="password"
-//         autoComplete="current-password"
-//         value={this.state.password}
-//         onChange={this.handlePasswordChange}
-//         margin="normal"
-//         variant="outlined" />
-// </div>
-// </div>

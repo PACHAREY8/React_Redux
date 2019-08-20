@@ -37,11 +37,11 @@ import { userAction } from '../Actions/userAction';
 
         })
     }
-    handleClick = (event) => {
-        this.setState({
-            currentPage: Number(event.target.id)
-        });
-    }
+    // handleClick = (event) => {
+    //     this.setState({
+    //         currentPage: Number(event.target.id)
+    //     });
+    // }
 
     pageNumber = (event) => {
         this.setState({
@@ -122,7 +122,6 @@ import { userAction } from '../Actions/userAction';
                 </button>
             </li>
         ));
-
         var UnapprovedArray = this.state.unApproved.map(key => {
 
             return (
@@ -138,7 +137,6 @@ import { userAction } from '../Actions/userAction';
             <div>
                 <AppBar />
                 <center>
-                <div className="empty_state_pay"><h3>Requested Questions</h3></div>
                     <div className="table-responsive QnA_table">
                         <table className="table table-stripped table-bordered table-hover ">
                             <thead >
@@ -169,7 +167,7 @@ import { userAction } from '../Actions/userAction';
         else{
             return(
                 <div>
-                <div><AppBar /></div>
+            <AppBar />
                <div className="empty_state"><h2>Answers Not Available</h2></div>
                 </div>
             )

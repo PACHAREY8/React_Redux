@@ -17,7 +17,7 @@ export default class AppBar extends Component {
     render() {
         return (
           <Navbar bg="light" variant="light">
-          <Navbar.Brand >ADMIN  DASHBOARD</Navbar.Brand>
+          <Navbar.Brand onClick={this.handleUserList}>ADMIN  DASHBOARD</Navbar.Brand>
           <Nav className="mr-auto">
             <Nav.Link onClick={this.handleUserList}>USERS</Nav.Link>
             <Nav.Link onClick={this.handleQnAList}>Q & A</Nav.Link>

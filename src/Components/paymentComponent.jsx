@@ -42,11 +42,11 @@ class PaymentComponent extends Component {
         }
         this.props.Reject(data)
     }
-    handleClick = (event) => {
-        this.setState({
-            currentPage: Number(event.target.id)
-        });
-    }
+    // handleClick = (event) => {
+    //     this.setState({
+    //         currentPage: Number(event.target.id)
+    //     });
+    // }
 
     pageNumber = (event) => {
         this.setState({
@@ -134,7 +134,6 @@ class PaymentComponent extends Component {
                 <AppBar />
                 
                 <center className="center_table">
-                <div className="empty_state_pay"><h3>Pending Request</h3></div>
                     <div className="table-responsive QnA_table">
                         <table className="table table-stripped table-bordered table-hover ">
                             <thead >

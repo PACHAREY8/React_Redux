@@ -122,23 +122,17 @@ class DashboardComponent extends Component {
         </button>
       </li>
     ));
-
-
-
-
-
     const ServiceDetails = this.state.serviceDetails.map((key) => {
       return (
-          <div className="main_card">
             <div className="service_check">
-              <div className="card border-info mb-3 ">
-                <div className="card-header service_">{key.service}</div>
+              <div className="card border-info mb-3 " >
+                <div className="card-header service_" style={{  padding: "-0.75rem"}}>{key.service}</div>
                 <div className="card-body text-info">
-                  <h5 className="card-title">{key.count}</h5>
+                  <h5 className="card-title" style={{  padding: "-0.75rem"}}>{key.count}</h5>
                 </div>
               </div>
             </div>
-          </div>)
+            )
     })
     return (
       <div>

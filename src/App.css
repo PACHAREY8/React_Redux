@@ -17,6 +17,7 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  width: 100%
 }
 
 .App-link {
@@ -154,11 +155,6 @@ button.btn.button1 {
   margin-right: 18px;
   /* box-shadow: 0 0 5px; */
 }
-.service_check {
-  display: flex;
-  justify-content: space-evenly;
-  margin-top: 2rem;
-}
 .card.basic_card {
   width: 14rem;
   height: 8rem;
@@ -174,15 +170,16 @@ button.btn.button1 {
   background-color: C0C0C0;
   background-color: lightgrey;
 }
-.card-header.service_ {
+/* .card-header.service_ {
   font-weight: 800;
   font-size: 23px;
-}
+} */
 .servive_cards {
+  width: 100%;
   display: flex;
+  align-content: center;
   justify-content: space-evenly;
-  padding-top: 5rem;
-  /* overflow: hidden; */
+  padding-top: 6rem;
 }
 .card-header.service_ {
   font-weight: 800;
@@ -289,6 +286,14 @@ tr.admin_data {
   text-align: center;
   margin-top: 13vh;
   color: rgba(0,0,0,.5);
+}
+ h2{
+  margin-top: 31px;
+  margin-bottom: .5rem;
+}
+.card-body {
+  flex: 1 1 auto;
+  padding: -0.25rem;
 }
 /* center.center_table {
   position: absolute;

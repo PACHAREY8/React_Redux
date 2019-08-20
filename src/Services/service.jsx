@@ -1,6 +1,6 @@
 import axios from 'axios';
 import {authHeader} from '../Helpers/authHeader'
-const baseUrl="http://34.213.106.173/api"
+const baseUrl="http://fundoonotes.incubation.bridgelabz.com/api"
 export function AdminRegister(data) {
     return axios.post(baseUrl+`/user/adminSignUp`, data)
 }

@@ -1,11 +1,7 @@
 import { userConstant } from "../Constants/userConstant";
 let data = JSON.parse(localStorage.getItem('data'))
-console.log("data cheking in reducer==>>>",data);
 const initialState = data ? { signIn: true, data } : {};
-console.log("initial state cheking",initialState);
-export function LoginReducer(state = initialState, action) {
-    console.log(state);
-    
+export function LoginReducer(state = initialState, action) {    
     switch (action.type) {
         case userConstant.LOGIN_REQUEST:
             return {

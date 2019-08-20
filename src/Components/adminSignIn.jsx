@@ -44,10 +44,6 @@ class AdminSignIn extends Component {
 
     // }
     render() {
-        authHeader()
-        const signIn = this.props
-        console.log("state_cheking_for_signIn", signIn);
-
         return (
             <div className="main_div_login" >
                 <form className="login_form">
@@ -61,26 +57,26 @@ class AdminSignIn extends Component {
                     </p>
                     <div className="ser_sign"><b>Sign In</b></div>
                     <div className="ser_contToFundoo">Continue to Fundoo</div>
-                    <div class="form-group">
-                        <label for="usr">Email:</label>
+                    <div className="form-group">
+                        <label htmlFor="usr">Email:</label>
                         <input type="text" className="form-control" id="usr"   value={this.state.email}
                              onChange={this.handleEmailChange} />
                     </div>
-                    <div class="form-group">
-                        <label for="pwd">Password:</label>
+                    <div className="form-group">
+                        <label htmlFor="pwd">Password:</label>
                         <input type="password" className="form-control" id="pwd" value={this.state.password}
                              onChange={this.handlePasswordChange}/>
                     </div>
                     <div className="button_11">
                         <div>
                             <div>
-                                <button class="btn btn-light" style={{ fontSize: "11px" }}>FORGOT PASSWORD</button>
+                                <button className="btn btn-light" style={{ fontSize: "11px" }}>FORGOT PASSWORD</button>
                             </div>
                             <div>
-                                <button class="btn btn-light" style={{ fontSize: "11px" }} onClick={this.registerClick}>CREATE ACCOUNT</button>
+                                <button className="btn btn-light" style={{ fontSize: "11px" }} onClick={this.registerClick}>CREATE ACCOUNT</button>
                             </div>
                         </div>
-                        <button class="btn btn-outline-primary sign_In_button" style={{ fontSize: "15px" }} onClick={this.handleSubmit}>SIGN IN</button>
+                        <button className="btn btn-outline-primary sign_In_button" style={{ fontSize: "15px" }} onClick={this.handleSubmit}>SIGN IN</button>
                     </div>
                 </form>
             </div>
@@ -88,10 +84,7 @@ class AdminSignIn extends Component {
     }
 }
 function mapstate(state) {
-    console.log("map state cheking", state);
-
-    const signIn = state.LoginReducer.data;
-    console.log("after state set in component", signIn);
+    const signIn = state
     return signIn
 }
 

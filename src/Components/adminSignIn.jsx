@@ -13,12 +13,10 @@ class AdminSignIn extends Component {
     handleEmailChange = event => {
         const email = event.target.value;
         this.setState({ email: email })
-        console.log(this.state.email);
     }
     handlePasswordChange = event => {
         const password = event.target.value;
         this.setState({ password: password })
-        console.log(this.state.password);
 
     }
     handleSubmit = (e) => {
@@ -59,12 +57,12 @@ class AdminSignIn extends Component {
                     <div className="ser_contToFundoo">Continue to Fundoo</div>
                     <div className="form-group">
                         <label htmlFor="usr">Email:</label>
-                        <input type="text" className="form-control" id="usr"   value={this.state.email}
+                        <input type="email" className="form-control" id="email"   value={this.state.email}
                              onChange={this.handleEmailChange} />
                     </div>
                     <div className="form-group">
                         <label htmlFor="pwd">Password:</label>
-                        <input type="password" className="form-control" id="pwd" value={this.state.password}
+                        <input type="password" className="form-control" id="password" value={this.state.password}
                              onChange={this.handlePasswordChange}/>
                     </div>
                     <div className="button_11">

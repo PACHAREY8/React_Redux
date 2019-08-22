@@ -6,12 +6,13 @@ import AdminSignIn from './Components/adminSignIn'
 import DashboardComponent from './Components/dashboardComponent'
 import QnAComponent from './Components/qnAComponent'
 import PaymentComponent from './Components/paymentComponent'
-
+import { Provider } from 'react-redux';
+import { store } from "./store";
 
 class App extends Component{
   render(){
     return(
-      <div>  
+      <div>
          <Router>
          <Route exact path="/" component={AdminSignIn} ></Route>
           <Route path ="/adminSignIn" component={AdminSignIn}></Route>

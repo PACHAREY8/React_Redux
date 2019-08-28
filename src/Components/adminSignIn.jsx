@@ -62,7 +62,7 @@ class AdminSignIn extends Component {
                     </div>
                     <div className="form-group">
                         <label htmlFor="pwd">Password:</label>
-                        <input type="password" className="form-control" id="password" value={this.state.password}
+                        <input name='email' type="password" className="form-control" id="password" value={this.state.password}
                              onChange={this.handlePasswordChange}/>
                     </div>
                     <div className="button_11">
@@ -82,10 +82,11 @@ class AdminSignIn extends Component {
     }
 }
 function mapstate(state) {
-    const signIn = state
+console.log("after reducer",state.LoginReducer.email);
+
+    const signIn = state.LoginReducer.email
     return signIn
 }
-
 const actionCreator = {
     login: userAction.login
 }

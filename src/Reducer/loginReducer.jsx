@@ -1,6 +1,6 @@
 import { userConstant } from "../Constants/userConstant";
 let data = JSON.parse(localStorage.getItem('data'))
-const initialState = data ? { signIn: true, data } : {};
+const initialState = data ? { signIn: true, data } : {email:"ash@gmail.com"};
 export function LoginReducer(state = initialState, action) {    
     switch (action.type) {
         case userConstant.LOGIN_REQUEST:
